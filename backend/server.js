@@ -38,13 +38,13 @@ app.use(express.json());
 // Serve product images
 app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
 
-// In production, serve the built React app
+// In production, serve the built React app static assets
 const clientDist = path.join(__dirname, '..', 'frontend', 'dist');
 if (fs.existsSync(clientDist)) {
   app.use(express.static(clientDist));
 }
 
-app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
+app.get('/api/health', (_req, res) => res.json({ status: 'ok', service: '1fi-emi-store' }));
 
 // ---- List products (summary card per product) ----
 app.get('/api/products', (_req, res) => {
@@ -129,11 +129,14 @@ app.get('/api/products/:slug', (req, res) => {
   res.json(payload);
 });
 
-// SPA fallback (client-side routes like /products/iphone-17-pro)
-if (fs.existsSync(clientDist)) {
-  app.get(/^(?!\/api|\/images).*/, (_req, res) =>
-    res.sendFile(path.join(clientDist, 'index.html'))
-  );
-}
+// SPA fallback for all client routes (e.g. /products/iphone-17-pro)
+app.get('*', (_req, res) => {
+  const indexPath = path.join(clientDist, 'index.html');
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    res.status(404).send('1Fi Store API is running. Build frontend using "npm run build".');
+  }
+});
 
 app.listen(PORT, () => console.log(`🚀 API ready at http://localhost:${PORT}`));
