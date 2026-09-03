@@ -1,0 +1,9 @@
+# Render.com one-click deploy blueprint
+services:
+  - type: web
+    name: onefi-emi-store
+    runtime: node
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build && cd ../backend && npm install
+    startCommand: cd backend && npm start
+    healthCheckPath: /api/health

@@ -1,0 +1,9 @@
+node_modules/
+dist/
+backend/db/onefi.db
+backend/db/onefi.db-journal
+backend/db/onefi.db-wal
+backend/db/onefi.db-shm
+*.log
+.DS_Store
+.env
