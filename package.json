@@ -1,0 +1,13 @@
+{
+  "name": "onefi-emi-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "1Fi Store - Fullstack EMI Store root package configuration for Render/Vercel deployment",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build && cd ../backend && npm install",
+    "start": "cd backend && npm start"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
