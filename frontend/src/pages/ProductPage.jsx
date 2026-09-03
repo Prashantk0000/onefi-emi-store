@@ -194,21 +194,6 @@ export default function ProductPage() {
             </div>
           </div>
 
-          {/* Higher Credit Banner */}
-          <div className="flex items-center justify-between bg-blue-50 border border-blue-100 rounded-xl p-3 text-xs text-blue-950">
-            <div className="flex items-center gap-2">
-              <span className="text-base">💳</span>
-              <div>
-                <p className="font-bold">Higher Credit Instantly</p>
-                <p className="text-[11px] text-blue-800">Download 1Fi App or apply via Mutual Funds</p>
-              </div>
-            </div>
-            <div className="flex gap-1.5">
-              <span className="bg-slate-900 text-white px-2 py-1 rounded text-[10px] font-bold">App Store</span>
-              <span className="bg-slate-900 text-white px-2 py-1 rounded text-[10px] font-bold">Google Play</span>
-            </div>
-          </div>
-
           {/* ================= MAIN EMI PLAN SELECTION CARD (Matching Snapmint Screenshot) ================= */}
           <div className="bg-white border-2 border-slate-200 rounded-2xl shadow-sm overflow-hidden">
             {/* Pay Now Banner */}
