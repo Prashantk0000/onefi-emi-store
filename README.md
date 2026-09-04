@@ -180,18 +180,3 @@ onefi-emi-store/
 
 ---
 
-## ☁️ Deployment
-
-The production build is a **single Node process** (Express serves both the API and the built React app), so it deploys cleanly to Render / Railway / Fly.io:
-
-- **Build command:** `cd frontend && npm install && npm run build && cd ../backend && npm install`
-- **Start command:** `cd backend && npm start`
-- The DB auto-seeds on first boot if `onefi.db` is missing.
-
-For Vercel-style split deploys, deploy `frontend/` as a static SPA with `VITE_API_BASE` pointing at the hosted API.
-
----
-
-## 🎥 Demo Video
-
-_Link to be added — 2–5 min walkthrough of UI, API responses, and the seeded database._
